@@ -138,16 +138,38 @@ export default function Logo({
       {showText && (
         <div className="flex flex-col leading-none">
           <div className={`font-black tracking-tight flex items-baseline ${sizeConfig.textSize}`}>
-            <span className={highContrast ? 'text-white' : 'text-slate-900'}>
+            <span className={
+              theme === 'footer'
+                ? 'text-white sm:text-slate-900 sm:dark:text-white'
+                : theme === 'dark'
+                  ? 'text-white'
+                  : highContrast
+                    ? 'text-white'
+                    : 'text-slate-900 dark:text-white'
+            }>
               METRO
             </span>
-            <span className="text-blue-600 font-extrabold ml-1">
+            <span className={
+              theme === 'footer'
+                ? 'text-sky-400 sm:text-blue-600 sm:dark:text-sky-400 font-extrabold ml-1'
+                : theme === 'dark'
+                  ? 'text-sky-400 font-extrabold ml-1'
+                  : 'text-blue-600 dark:text-sky-400 font-extrabold ml-1'
+            }>
               PULSE
             </span>
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 ml-1 mb-0.5 animate-pulse"></span>
           </div>
           {showTagline && (
-            <span className={`font-semibold tracking-wider uppercase mt-0.5 ${sizeConfig.taglineSize} ${highContrast ? 'text-slate-400' : 'text-slate-500'}`}>
+            <span className={`font-semibold tracking-wider uppercase mt-0.5 ${sizeConfig.taglineSize} ${
+              theme === 'footer'
+                ? 'text-slate-300 sm:text-slate-500 sm:dark:text-slate-400'
+                : theme === 'dark'
+                  ? 'text-slate-300'
+                  : highContrast
+                    ? 'text-slate-400'
+                    : 'text-slate-500 dark:text-slate-400'
+            }`}>
               Metropolitan Rapid Transit
             </span>
           )}

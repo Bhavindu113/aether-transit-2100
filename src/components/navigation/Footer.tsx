@@ -33,7 +33,7 @@ export default function Footer() {
               className="text-left focus:outline-none"
               aria-label="MetroPulse Home"
             >
-              <Logo size="md" showTagline={true} />
+              <Logo size="md" showTagline={true} theme="footer" />
             </button>
 
             <p className="text-sm text-slate-300 sm:text-slate-600 sm:dark:text-slate-300 font-normal leading-relaxed max-w-sm">
