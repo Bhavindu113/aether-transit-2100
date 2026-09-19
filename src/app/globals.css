@@ -1,0 +1,411 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-scale: 1;
+  --bg-primary: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-card: rgba(255, 255, 255, 0.95);
+  --border-card: rgba(226, 232, 240, 0.85);
+  --border-hover: rgba(59, 130, 246, 0.5);
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --accent-blue: #2563EB;
+  --accent-cyan: #0284C7;
+  --accent-emerald: #059669;
+  --accent-amber: #D97706;
+}
+
+/* Dark & High-Contrast Mode CSS Variables */
+html.dark,
+html.high-contrast-mode {
+  --bg-primary: #0A0F1D;
+  --bg-surface: #111827;
+  --bg-card: #1E293B;
+  --border-card: #334155;
+  --border-hover: #60A5FA;
+  --text-primary: #FFFFFF;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+}
+
+/* Base Body Styles - Normal Light Mode */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Soft Ambient Background */
+.ambient-lighting {
+  background: 
+    radial-gradient(circle 800px at 10% 0%, rgba(219, 234, 254, 0.4), transparent 70%),
+    radial-gradient(circle 700px at 90% 20%, rgba(209, 250, 229, 0.3), transparent 65%),
+    radial-gradient(circle 900px at 50% 100%, rgba(241, 245, 249, 0.6), transparent 75%);
+}
+
+/* Dark Mode Ambient Lighting */
+html.dark body.ambient-lighting,
+html.high-contrast-mode body.ambient-lighting {
+  background: 
+    radial-gradient(circle 800px at 10% 0%, rgba(30, 58, 138, 0.25), transparent 70%),
+    radial-gradient(circle 700px at 90% 20%, rgba(6, 78, 59, 0.2), transparent 65%),
+    radial-gradient(circle 900px at 50% 100%, #070A12, transparent 75%),
+    #0A0F1D !important;
+}
+
+/* Subtle dot mesh pattern */
+.subtle-mesh {
+  background-image: radial-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+html.dark .subtle-mesh,
+html.high-contrast-mode .subtle-mesh {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+}
+
+/* Refined Modern Card Surfaces */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-card);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+}
+
+.glass-panel:hover {
+  border-color: rgba(203, 213, 225, 0.9);
+  box-shadow: 0 8px 25px -4px rgba(15, 23, 42, 0.08);
+}
+
+.glass-panel-glow {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(219, 234, 254, 0.9);
+  box-shadow: 0 4px 25px -2px rgba(37, 99, 235, 0.08);
+}
+
+/* ========================================================================= */
+/* ========================================================================= */
+/* FULL-PAGE HIGH CONTRAST DARK MODE                                         */
+/* Transforms the entire website into High Contrast Dark Mode when active.   */
+/* Background turns to deep modern dark, typography is crisp bright white.  */
+/* ========================================================================= */
+
+.high-contrast-mode,
+.dark,
+html.high-contrast-mode,
+html.dark,
+.high-contrast-mode body,
+.dark body {
+  background-color: #0A0F1D !important;
+  color: #FFFFFF !important;
+}
+
+/* All main containers turn into dark mode */
+.high-contrast-mode main,
+.dark main,
+.high-contrast-mode .bg-slate-50,
+.dark .bg-slate-50,
+.high-contrast-mode .bg-\[\#F8FAFC\],
+.dark .bg-\[\#F8FAFC\] {
+  background-color: #0A0F1D !important;
+}
+
+/* Header & Nav in Dark Mode */
+.high-contrast-mode header,
+.dark header {
+  background-color: #0F172A !important;
+  border-bottom: 1px solid #334155 !important;
+}
+
+.high-contrast-mode nav,
+.dark nav {
+  background-color: #1E293B !important;
+  border: 1px solid #475569 !important;
+}
+
+/* Footer in Dark Mode */
+.high-contrast-mode footer,
+.dark footer {
+  background-color: #0F172A !important;
+  border-top: 1px solid #334155 !important;
+}
+
+.high-contrast-mode footer .bg-slate-50\/70,
+.dark footer .bg-slate-50\/70,
+.high-contrast-mode footer .bg-slate-50,
+.dark footer .bg-slate-50 {
+  background-color: #080D1A !important;
+  border-color: #334155 !important;
+}
+
+/* All Cards, Panels, and Surfaces in Dark Mode */
+.high-contrast-mode .bg-white,
+.dark .bg-white,
+.high-contrast-mode .glass-panel,
+.dark .glass-panel,
+.high-contrast-mode .glass-panel-glow,
+.dark .glass-panel-glow {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Modal Dialog Backdrop: Translucent blur so the dark page is visible behind the modal */
+.high-contrast-mode .fixed.inset-0,
+.dark .fixed.inset-0 {
+  background-color: rgba(0, 0, 0, 0.65) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* Modal Dialog Card */
+.high-contrast-mode [role="dialog"],
+.dark [role="dialog"] {
+  background-color: #0F172A !important;
+  border: 1.5px solid #475569 !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8) !important;
+}
+
+.high-contrast-mode [role="dialog"] .bg-slate-50,
+.dark [role="dialog"] .bg-slate-50,
+.high-contrast-mode [role="dialog"] .bg-blue-50,
+.dark [role="dialog"] .bg-blue-50 {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+}
+
+/* ALL TYPOGRAPHY: Crisp bright white */
+.high-contrast-mode p,
+.high-contrast-mode span,
+.high-contrast-mode h1,
+.high-contrast-mode h2,
+.high-contrast-mode h3,
+.high-contrast-mode h4,
+.high-contrast-mode h5,
+.high-contrast-mode h6,
+.high-contrast-mode label,
+.high-contrast-mode a,
+.high-contrast-mode strong,
+.high-contrast-mode b {
+  color: #FFFFFF !important;
+}
+
+.high-contrast-mode h1,
+.high-contrast-mode h2,
+.high-contrast-mode h3,
+.high-contrast-mode h4 {
+  font-weight: 800 !important;
+}
+
+.high-contrast-mode .text-slate-900,
+.high-contrast-mode .text-slate-800,
+.high-contrast-mode .text-gray-900,
+.high-contrast-mode .text-gray-800,
+.high-contrast-mode .text-black {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+/* Muted / secondary text becomes sharp light silver for clear readability */
+.high-contrast-mode .text-slate-400,
+.high-contrast-mode .text-slate-500,
+.high-contrast-mode .text-slate-600,
+.high-contrast-mode .text-slate-700,
+.high-contrast-mode .text-gray-400,
+.high-contrast-mode .text-gray-500,
+.high-contrast-mode .text-gray-600 {
+  color: #CBD5E1 !important;
+  font-weight: 500 !important;
+}
+
+/* High contrast accent colors in dark mode */
+.high-contrast-mode .text-blue-600,
+.high-contrast-mode .text-blue-700,
+.high-contrast-mode .text-blue-800 {
+  color: #60A5FA !important;
+  font-weight: 700 !important;
+}
+
+.high-contrast-mode .text-emerald-600,
+.high-contrast-mode .text-emerald-700,
+.high-contrast-mode .text-emerald-800 {
+  color: #34D399 !important;
+  font-weight: 700 !important;
+}
+
+.high-contrast-mode .text-amber-600,
+.high-contrast-mode .text-amber-700,
+.high-contrast-mode .text-amber-800 {
+  color: #FBBF24 !important;
+  font-weight: 700 !important;
+}
+
+/* Distinct borders on all cards and containers */
+.high-contrast-mode .border,
+.high-contrast-mode .border-slate-200,
+.high-contrast-mode .border-slate-200\/80,
+.high-contrast-mode .border-slate-200\/90,
+.high-contrast-mode .border-slate-300,
+.high-contrast-mode .border-slate-100 {
+  border-color: #334155 !important;
+}
+
+/* Form Input Fields in Dark Mode */
+.high-contrast-mode input,
+.high-contrast-mode select {
+  background-color: #0F172A !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #475569 !important;
+  font-weight: 600 !important;
+}
+
+.high-contrast-mode input::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* Primary Action Buttons in Dark Mode */
+.high-contrast-mode button.bg-blue-600,
+.high-contrast-mode .bg-blue-600 {
+  background-color: #2563EB !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #3B82F6 !important;
+  font-weight: 700 !important;
+}
+
+.high-contrast-mode button.bg-blue-600 span,
+.high-contrast-mode button.bg-blue-600 svg {
+  color: #FFFFFF !important;
+}
+
+/* Soft icon tags & badges in Dark Mode */
+.high-contrast-mode .bg-blue-50,
+.high-contrast-mode .bg-emerald-50,
+.high-contrast-mode .bg-amber-50,
+.high-contrast-mode .bg-rose-50 {
+  background-color: rgba(30, 41, 59, 0.8) !important;
+  border: 1px solid #475569 !important;
+}
+
+/* Live Transit Map Canvas in Dark Mode */
+.high-contrast-mode .bg-\[\#F1F5F9\],
+.dark .bg-\[\#F1F5F9\],
+.high-contrast-mode .bg-\[\#EBF2F7\],
+.dark .bg-\[\#EBF2F7\] {
+  background-color: #0B0F19 !important;
+  border-color: #334155 !important;
+}
+
+/* Real Google Map SVG Colors in Dark Mode */
+.high-contrast-mode svg rect[fill="#E2EDF8"],
+.dark svg rect[fill="#E2EDF8"] {
+  fill: #080D1A !important;
+}
+
+.high-contrast-mode svg path[fill="#F8FAFC"],
+.dark svg path[fill="#F8FAFC"] {
+  fill: #111827 !important;
+  stroke: #374151 !important;
+}
+
+.high-contrast-mode svg path[fill="#BAE6FD"],
+.dark svg path[fill="#BAE6FD"] {
+  fill: #172554 !important;
+}
+
+/* Schematic District Polygons in Dark Mode */
+.high-contrast-mode svg polygon[fill="#E2E8F0"],
+.dark svg polygon[fill="#E2E8F0"] {
+  fill: #1E293B !important;
+  stroke: #3B82F6 !important;
+}
+
+.high-contrast-mode svg polygon[fill="#E0E7FF"],
+.dark svg polygon[fill="#E0E7FF"] {
+  fill: #1E1B4B !important;
+  stroke: #6366F1 !important;
+}
+
+.high-contrast-mode svg polygon[fill="#D1FAE5"],
+.dark svg polygon[fill="#D1FAE5"] {
+  fill: #064E3B !important;
+  stroke: #10B981 !important;
+}
+
+.high-contrast-mode svg polygon[fill="#FEF3C7"],
+.dark svg polygon[fill="#FEF3C7"] {
+  fill: #451A03 !important;
+  stroke: #F59E0B !important;
+}
+
+/* Zone Labels in Dark Mode */
+.high-contrast-mode svg text[fill="#1E3A8A"],
+.dark svg text[fill="#1E3A8A"] {
+  fill: #93C5FD !important;
+}
+
+.high-contrast-mode svg text[fill="#312E81"],
+.dark svg text[fill="#312E81"] {
+  fill: #C7D2FE !important;
+}
+
+.high-contrast-mode svg text[fill="#064E3B"],
+.dark svg text[fill="#064E3B"] {
+  fill: #6EE7B7 !important;
+}
+
+.high-contrast-mode svg text[fill="#78350F"],
+.dark svg text[fill="#78350F"] {
+  fill: #FCD34D !important;
+}
+
+/* Station pills, vehicle tags, and circle markers */
+.high-contrast-mode svg text[fill="#0F172A"],
+.dark svg text[fill="#0F172A"] {
+  fill: #FFFFFF !important;
+}
+
+.high-contrast-mode svg rect[fill="#FFFFFF"],
+.dark svg rect[fill="#FFFFFF"] {
+  fill: #1E293B !important;
+  stroke: #475569 !important;
+}
+
+.high-contrast-mode svg circle[fill="#FFFFFF"],
+.dark svg circle[fill="#FFFFFF"] {
+  fill: #1E293B !important;
+}
+
+/* Accessible focus ring */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid #60A5FA;
+  outline-offset: 2px;
+}
+
+/* Clean, modern scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #0F172A;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.65);
+}
