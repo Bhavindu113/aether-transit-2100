@@ -26,12 +26,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="subtle-mesh ambient-lighting min-h-screen text-slate-900 flex flex-col selection:bg-blue-100 selection:text-blue-900 antialiased">
+    <html lang="en" className="overflow-x-hidden max-w-full">
+      <body className="subtle-mesh ambient-lighting min-h-screen text-slate-900 flex flex-col selection:bg-blue-100 selection:text-blue-900 antialiased overflow-x-hidden max-w-full w-full">
         <AccessibilityProvider>
           <TransitProvider>
             {/* Main Application Shell */}
-            <div className="flex-1 flex flex-col pb-16 md:pb-0">
+            <div className="flex-1 flex flex-col pb-20 md:pb-0 w-full max-w-full overflow-x-hidden">
               {children}
               <Footer />
             </div>

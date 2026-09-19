@@ -28,22 +28,22 @@ export default function AccessibilitySuite() {
       {/* Persistent Floating Trigger Button */}
       <aside 
         aria-label="Accessibility tools"
-        className="fixed bottom-20 md:bottom-6 right-4 z-30"
+        className="fixed bottom-20 md:bottom-6 right-3 sm:right-4 z-30 pointer-events-auto max-w-[calc(100vw-1.5rem)]"
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
           aria-label="Open Accessibility Options"
-          className="flex items-center space-x-2 px-3.5 py-2.5 rounded-full bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 shadow-md transition-all hover:scale-105 active:scale-95 group focus:outline-none focus:ring-2 focus:ring-blue-600"
+          className="flex items-center space-x-1.5 sm:space-x-2 px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-100 shadow-lg transition-all hover:scale-105 active:scale-95 group focus:outline-none focus:ring-2 focus:ring-blue-600"
         >
-          <div className="w-5 h-5 rounded-full bg-blue-50 flex items-center justify-center border border-blue-200">
-            <Accessibility className="w-3.5 h-3.5 text-blue-600" />
+          <div className="w-5 h-5 rounded-full bg-blue-50 dark:bg-blue-950/60 flex items-center justify-center border border-blue-200 dark:border-blue-800 flex-shrink-0">
+            <Accessibility className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
           </div>
           <span className="text-xs font-bold tracking-wide">
             {plainLanguage ? "Easy Reading" : "Accessibility"}
           </span>
           {(highContrast || plainLanguage || fontSize !== 'standard') && (
-            <span className="w-2 h-2 rounded-full bg-emerald-500" title="Custom accessibility settings active"></span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0" title="Custom accessibility settings active"></span>
           )}
         </button>
       </aside>
