@@ -8,13 +8,15 @@ interface LogoProps {
   showText?: boolean;
   showTagline?: boolean;
   className?: string;
+  theme?: 'auto' | 'light' | 'dark' | 'footer';
 }
 
 export default function Logo({
   size = 'md',
   showText = true,
   showTagline = false,
-  className = ''
+  className = '',
+  theme = 'auto'
 }: LogoProps) {
   const { highContrast } = useAccessibility();
 
